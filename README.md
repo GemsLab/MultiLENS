@@ -7,7 +7,7 @@
 **Code**: The code will be uploaded here soon.
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/GemsLab/MultiLENS/master/overview.png" width="700"  alt="Overview of MultiLENS">
+<img src="https://raw.githubusercontent.com/GemsLab/MultiLENS/master/overview.png" width="600"  alt="Overview of MultiLENS">
 </p>
 
 
