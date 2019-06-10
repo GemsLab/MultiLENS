@@ -6,6 +6,9 @@
 
 **Code**: The code will be uploaded here soon.
 
+![alt text](https://raw.githubusercontent.com/GemsLab/MultiLENS/master/overview.jpg)
+
+
 **Citation (bibtex)**:
 ```
 @inproceedings{DBLP:conf/kdd/JinRKKRK19,
