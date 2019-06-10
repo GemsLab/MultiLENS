@@ -6,7 +6,7 @@
 
 **Code**: The code will be uploaded here soon.
 
-![Overview of MultiLENS](https://raw.githubusercontent.com/GemsLab/MultiLENS/master/overview.jpg)
+![Overview of MultiLENS](https://raw.githubusercontent.com/GemsLab/MultiLENS/master/overview.png)
 
 
 **Citation (bibtex)**:
