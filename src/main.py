@@ -321,7 +321,7 @@ if __name__ == '__main__':
 	# Base features to use.
 	######################################################
 
-	emb_if_write = True
+	emb_write = True
 
 	base_features = ['row', 'col', 'row_col']
 
@@ -399,7 +399,6 @@ if __name__ == '__main__':
 	g_sums = []
 
 	neighbor_list = construct_neighbor_list(adj_matrix, nodes_to_embed)
-	neighbor_list_r = construct_neighbor_list(adj_matrix.T, nodes_to_embed)
 
 	graph = Graph(adj_matrix = adj_matrix, max_id = max_id, num_nodes = num_nodes, base_features = base_features,
 		neighbor_list = neighbor_list, directed = directed, cat_dict = CAT_DICT, id_cat_dict = ID_CAT_DICT, unique_cat = unique_cat, check_eq = check_eq)
@@ -412,13 +411,12 @@ if __name__ == '__main__':
 	init_feature_matrix = get_init_features(graph, base_features, nodes_to_embed)
 	init_feature_matrix_seq = get_seq_features(graph, rep_method, input_dense_matrix = init_feature_matrix, nodes_to_embed = nodes_to_embed)
 
-
 	Kis = get_Kis(init_feature_matrix_seq, dim, L)
-	print Kis
 	
 	feature_matrix_emb, g_sum = feature_layer_evaluation_embedding(graph, rep_method, feature_matrix = init_feature_matrix_seq, k = Kis[0])
 
 	g_sums.append(g_sum)
+
 
 	########################################
 	# Step 2: feature proliferation.
@@ -428,6 +426,7 @@ if __name__ == '__main__':
 
 	rep = feature_matrix_emb
 	feature_matrix = init_feature_matrix
+
 
 	for i in range(L):
 		print '[Current layer] ' + str(i)
@@ -451,11 +450,12 @@ if __name__ == '__main__':
 	for ele in g_sums:
 		print ele.shape
 
-	write_embedding(rep, output_file_path)
-
-	fOut = open('latemt_summary.pkl', 'wb')
+	fOut = open('latent_summary.pkl', 'wb')
 	pickle.dump(g_sums, fOut, -1)
 	fOut.close()
+
+	if emb_write:
+		write_embedding(rep, output_file_path)
 	
 
 

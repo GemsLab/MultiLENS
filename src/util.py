@@ -3,7 +3,7 @@ import scipy.sparse
 
 class RepMethod():
 	def __init__(self, bucket_max_value = None, method="hetero", num_buckets = None, use_other_features = False, operators = None,
-		use_total = 0, implicit_factorization = True):
+		use_total = 0):
 		self.method = method
 		self.bucket_max_value = bucket_max_value
 		self.num_buckets = num_buckets
@@ -55,3 +55,19 @@ def write_embedding(rep, output_file_path):
 	fOut.close()
 
 	return
+
+
+def read_embedding(input_file_path):
+
+	fIn = open(input_file_path, 'r')
+	N, K = fIn.readline().split(' ')
+
+	rep = np.zeros((int(N), int(K)))
+
+	for line in fIn.readlines():
+		parts = line.strip().split(' ')
+		rep[int(parts[0]),:] = [float(ele) for ele in parts[1:]]
+
+	
+	return rep
+
